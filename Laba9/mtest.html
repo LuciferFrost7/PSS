@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .backLink{
+            color: #0000dd;
+            text-decoration: underline;
+        }
+        .backLink:focus{
+            color: #dd0000;
+        }
+    </style>
+    <script type="text/javascript" language="JavaScript">
+        function goback() {
+            history.go(-1);
+        }
+
+        function isDigit(s){
+            let flag = false;
+            if(s.length > 1){
+                flag = s[0] === '-'
+            }
+            for(let i = 0 + flag; i < s.length; i++){
+                if(! '0123456789'.includes(s[i])){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function getNums(){
+            const number1 = prompt('Введите первое число: ')
+            if(! isDigit(number1)){
+                alert('Error!')
+                return false;
+            }
+            const number2 = prompt('Введите второе число: ')
+            if(! isDigit(number2)){
+                alert('Error!')
+                return false;
+            }
+            document.querySelector('.labelN').textContent = `${number1}+${number2}=${parseInt(number1) + parseInt(number2)}`
+
+        }
+    </script>
+</head>
+    <body>
+    <button onclick="goback()" class="backLink">Вернуться назад</button>
+    <button onclick="getNums()"></button>
+    <label class="labelN"></label>
+    </body>
+</html>
