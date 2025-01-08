@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .table_style{
+            background-image: linear-gradient(to left, greenyellow, navajowhite);
+            border-radius: 5px;
+        }
+        .table_style tr td{
+            font-size: large;
+            padding: 10px 25px;
+            border: #393939 1px solid;
+            border-radius: 2px;
+        }
+    </style>
+    <script src="script.js" language="JavaScript" type="text/javascript"></script>
+</head>
+<body>
+<div align="center">
+    <table class="table_style" align="center">
+        <tr style="font-weight: bold">
+            <td align="center">учащийся</td>
+            <td>1 экзамен</td>
+            <td>2 экзамен</td>
+            <td>3 экзамен</td>
+            <td>4 экзамен</td>
+        </tr>
+        <tr>
+            <td align="center" style="font-weight: bold">Кирилл</td>
+            <td id="kiryll1"></td>
+            <td id="kiryll2"></td>
+            <td id="kiryll3"></td>
+            <td id="kiryll4"></td>
+        </tr>
+        <tr>
+            <td align="center" style="font-weight: bold">Вова</td>
+            <td id="vova1"></td>
+            <td id="vova2"></td>
+            <td id="vova3"></td>
+            <td id="vova4"></td>
+        </tr>
+        <tr>
+            <td align="center" style="font-weight: bold">Маша</td>
+            <td id="masha1"></td>
+            <td id="masha2"></td>
+            <td id="masha3"></td>
+            <td id="masha4"></td>
+        </tr>
+    </table>
+    <br>
+    <button onclick="examChecker()">Ввести отметки</button>
+</div>
+<footer align="center" style="position: absolute;bottom: 5px;left:46%;">
+    <a href="laba10.html">Ссылка обратно</a>
+</footer>
+</body>
+</html>
