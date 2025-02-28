@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script language="JavaScript" type="text/javascript">
+        function isNumber($number){
+            if(!$number){
+                return false;
+            }
+            if($number.length > 0){
+                let $flag = 0;
+                if($number.length > 1){
+                    if($number[0] === "-"){
+                        $flag = 1;
+                    }
+                }
+                for(let $i = $flag; $i < $number.length;$i++) {
+                    if (!"0123456789".includes($number[$i])) {
+                        return false;
+                    }
+                }
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        function arrayToPositive($arr){
+            let $arr2 = [];
+            for(let $i = 0; $i < $arr.length; $i++){
+                $arr2.push(Math.abs($arr[$i]));
+            }
+            return $arr2;
+        }
+
+        function input_values(){
+            let $arr = prompt('Введите числа через пробел').split(' ');
+            for(let $i = 0; $i , $arr.length; $i++){
+                if (!isNumber($arr[$i])) {
+                    alert($arr[$i] + 'Не является числом!')
+                    return false;
+                }
+            }
+            document.querySelector(".massive").textContent = 1;
+        }
+    </script>
+</head>
+<body>
+<div align="center">
+    <div class="massive_div" style="border: 1px solid black;width: 1200px;height: 94%;padding: 10px 8px 20px 8px;">
+        <textarea class="massive" style="width: 1000px;height: 300px;resize: vertical;" onresize="resizeCheck();"> </textarea>
+        <br>
+        <br>
+        <button class="button" onclick="input_values()">Ввести значения</button>
+    </div>
+</div>
+</body>
+</html>

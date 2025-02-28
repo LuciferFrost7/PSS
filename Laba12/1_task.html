@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script language="JavaScript" type="text/javascript">
+        function isNumber($number){
+            if($number.length > 0){
+                let $flag = 0;
+                if($number.length > 1){
+                    if($number[0] === "-"){
+                        $flag = 1;
+                    }
+                }
+                for(let $i = $flag; $i < $number.length;$i++) {
+                    if (!"0123456789".includes($number[$i])) {
+                        return false;
+                    }
+                }
+                return true;
+            }else{
+                return false;
+            }
+        }
+        function correctLength($str){
+            let $result = "";
+            let $count = 0;
+            while($str){
+                $result += $str[0];
+                if($result[$result.length - 1] === ","){
+                    $result += " ";
+                }
+                $str = $str.slice(1, $str.length);
+            }
+            return $result;
+        }
+
+        function input_values(){
+            let $first_number = prompt("Введите число A");
+            if(!isNumber($first_number)){
+                alert("Введено не корректное число!");
+                return false;
+            }
+            $first_number = parseInt($first_number);
+            let $second_number = prompt("Введите число B");
+            if(!isNumber($second_number)){
+                alert("Введено не корректное число!");
+                return false;
+            }
+            $second_number = parseInt($second_number);
+            let $number = prompt("Введите число N");
+            if(!isNumber($number)){
+                alert("Введено не корректное число!");
+                return false;
+            }
+            $number = parseInt($number);
+
+            let $arr = [];
+            for(let $i = $first_number; $i <= $second_number; $i++){
+                if($i < $number) {
+                    $arr.push($i);
+                }
+            }
+            if($arr.length !== 0){
+                document.querySelector(".massive").textContent = `Промежуток [${$first_number}, ${$second_number}]`
+                    + ` до числа ${$number} : \n` + correctLength($arr.toString());
+            }else{
+                document.querySelector(".massive").textContent = `В промежутке [${$first_number}, ${$second_number}]`
+                    + ` нету числе до числа  ${$number}! =^(`;
+            }
+            return true;
+        }
+        function resizeCheck(){
+            const $mass = document.querySelector(".massive");
+            const $div = document.querySelector(".massive_div");
+            const $button = document.querySelector(".button");
+            if($mass.height > ($div.height + 16 + 10 + $button.height)){
+                document.querySelector(".massive").height = `${800}px`;
+            }
+        }
+    </script>
+</head>
+<body>
+<div align="center">
+    <div class="massive_div" style="border: 1px solid black;width: 1200px;height: 94%;padding: 10px 8px 20px 8px;">
+        <textarea class="massive" style="width: 1000px;height: 300px;resize: vertical;" onresize="resizeCheck();"> </textarea>
+        <br>
+        <br>
+        <button class="button" onclick="input_values()">Ввести значения</button>
+    </div>
+</div>
+</body>
+</html>
