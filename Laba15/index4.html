@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    td{
+      width: 400px;
+      height: 240px;
+    }
+
+    p{
+      font-size: 24px;
+    }
+
+
+    .stolbchik{
+      padding-left: 100px;
+    }
+  </style>
+  <script>
+    function random_stishok(){
+      for(let $i = 0; $i < 6; $i++){
+        let $p = document.querySelector(`#p${$i + 1}`);
+        $p.style.color = "black";
+      }
+      let $pp = document.querySelector(`#p${Math.round((Math.random() * 10) % 6) + 1}`);
+      let $ta = document.querySelector("#text_zone");
+      $pp.style.color = "cyan";
+      $ta.textContent = $pp.textContent;
+    }
+
+    function clear_all(){
+      for(let $i = 0; $i < 6; $i++){
+        let $p = document.querySelector(`#p${$i + 1}`);
+        $p.style.color = "black";
+      }
+      let $ta = document.querySelector("#text_zone").textContent = "";
+    }
+  </script>
+</head>
+<body style="margin: 0px; padding: 0px;">
+<table align="center">
+  <tr>
+    <td class="stolbchik">
+      <p id="p1">
+        1. Луна взошла. На вздох родимый<br>
+        Отвечу вздохом торжества,<br>
+        И сердце девушки любимой<br>
+        Услышит страстные слова.
+      </p>
+    </td>
+    <td rowspan="3" align="center">
+
+      <textarea name="text_zone" id="text_zone" style="width: 380px; height: 240px;resize: none;" >
+      </textarea>
+      <input type="button" id="knopa" value="Выбрать рандомный столбик" onclick="random_stishok()">
+      <input type="button" id="knopa2" value="Очистить" onclick="clear_all()">
+    </td>
+    <td class="stolbchik">
+        <p id="p2">
+          2. Слушай! Повесила дева<br>
+          Щит на высоком дубу,<br>
+          Полная страстного гнева,<br>
+          Слушает в далях трубу.
+        </p>
+    </td>
+  </tr>
+  <tr>
+    <td class="stolbchik">
+      <p id="p3">
+        3. Юноша в белом — высоко<br>
+        Стал на горе и трубит.<br>
+        Вспыхнуло синее око,<br>
+        Звук замирает — летит.
+      </p>
+    </td>
+    <td class="stolbchik">
+      <p id="p4">
+        4. Полная гневной тревоги<br>
+        Девушка ищет меча…<br>
+        Ночью на горной дороге<br>
+        Падает риза с плеча…
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td class="stolbchik">
+      <p id="p5">
+        5. Звуки умолкли так близко…<br>
+        Ближе! Приди! Отзовись!<br>
+        Ризы упали так низко.<br>
+        Юноша! ниже склонись!
+      </p>
+    </td>
+    <td class="stolbchik">
+      <p id="p6">
+        6. Луна взошла. На вздох любимой<br>
+        Отвечу вздохом торжества.<br>
+        И сердце девы нелюдимой<br>
+        Услышит страстные слова.
+      </p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    textarea{
+      width: 440px;
+      height: 180px;
+      resize: none;
+    }
+  </style>
+  <script>
+    function findAllNumbers(){
+      let $count = 0;
+      clearArea();
+      for(let $i = 100; $i < 1000; $i++){
+        if(parseInt($i.toString()[0]) === (parseInt($i.toString()[1]) + parseInt($i.toString()[2]))){
+          $count++;
+          document.querySelector("#text_zone").textContent += `${$i}\t`;
+        }
+      }
+      document.querySelector("#text_zone").textContent += `\n\nКоличество таких чисел: ${$count}`;
+    }
+
+    function clearArea(){
+      document.querySelector("#text_zone").textContent = "";
+    }
+  </script>
+</head>
+<body>
+<textarea id="text_zone"></textarea>
+<br>
+<input type="button" value="Заполнить" onclick="findAllNumbers()">
+<input type="button" value="Стереть" onclick="clearArea()">
+</body>
+</html>

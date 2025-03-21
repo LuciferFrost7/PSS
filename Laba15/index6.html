@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #text_place{
+        width: 320px;
+        height: 240px;
+        resize: none;
+    }
+</style>
+<script>
+    function findNumbers(){
+        document.querySelector("#text_place").textContent = "";
+        for(let $i = 10; $i < 100; $i++){
+            if(`${$i}`.includes(document.querySelector("#numka").value)){
+                document.querySelector("#text_place").textContent += `${$i}\t`;
+            }
+        }
+    }
+</script>
+<body>
+    <div align="center">
+        <input type="text" id="numka" name="input_num" maxlength="1" style="margin-right: 10px;margin-bottom: 15px;">
+        <input type="button" value="Найти все цифры" onclick="findNumbers()">
+        <br>
+        <textarea id="text_place"></textarea>
+    </div>
+</body>
+</html>
