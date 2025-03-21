@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      #box{
+        width: 24px;
+        height: 24px;
+      }
+      #name{
+        font-size: 28px;
+      }
+      div{
+        position: absolute;
+        width: 180px;
+        top: 25px;
+        left: 25px;
+      }
+    </style>
+  <script>
+    function randInt($num){
+      return Math.floor(Math.random() * $num)
+    }
+    function check($check){
+      if($check){
+        document.querySelector("#name").textContent = "Отмечен";
+      }else{
+        document.querySelector("#name").textContent = "Не отмечен";
+      }
+      document.querySelector("#cont").style.top = `${25 + randInt(675)}px`;
+      document.querySelector("#cont").style.left = `${25 + randInt(1275)}px`;
+    }
+  </script>
+</head>
+<body>
+<form>
+  <div id="cont">
+    <input name="inp" type="checkbox" id="box" onclick="check(this.checked)">
+    <label id="name">Не отмечен</label>
+  </div>
+</form>
+</body>
+</html>

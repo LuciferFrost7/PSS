@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div.c1{
+            margin: 45px;
+        }
+        input{
+            width: 460px;
+            font-size: 16px;
+            padding: 10px 5px 7px 15px;
+            border-radius: 50px;
+        }
+        ol{
+            background-color: #49b384;
+            border: 1px solid black;
+            width: 600px;
+            list-style-type: none;
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            padding: 10px;
+        }
+        li{
+            background-color: lightgreen;
+            border: 1px solid black;
+            font-size: 32px;
+            padding: 20px 10px;
+            margin-bottom: 5px;
+            margin-top: 5px;
+            border-radius: 2px;
+        }
+        .label{
+            position: absolute;
+            top: 18px;
+            left: 545px;
+            background-color: white;
+            padding: 0px 5px;
+        }
+        #searchButton{
+            padding: 3px;
+            border: 1px solid black;
+            font-size: 16px;
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            top: 33px;
+            left: 952px;
+            border-radius: 12px;
+        }
+        #error_field{
+            background-color: gray;
+            color: darkred;
+            visibility: hidden;
+            width: 500px;
+            border-radius: 15px;
+            padding: 3px;
+        }
+    </style>
+    <script language="JavaScript" type="text/javascript">
+        function search(){
+            let $text = document.getElementById("inputField").value;
+            if(["1", "2", "3", "4"].includes($text)){
+                document.querySelector("#error_field").style.visibility = "hidden";
+                for(let $i = 1; $i < 5; $i++){
+                    document.querySelector(`#li${$i}`).style.textDecoration = "none";
+                    document.querySelector(`#li${$i}`).style.backgroundColor = "lightgreen";
+                }
+                document.querySelector(`#li${$text}`).style.textDecoration = "underline";
+                document.querySelector(`#li${$text}`).style.backgroundColor = "wheat";
+            }else{
+                let $err = `Текст "${$text}" не является пунктом из списка!`
+                for(let $i = 1; $i < 5; $i++){
+                    document.querySelector(`#li${$i}`).style.textDecoration = "none";
+                    document.querySelector(`#li${$i}`).style.backgroundColor = "lightgreen";
+                }
+                document.getElementById("error_field").textContent = $err;
+                document.querySelector("#error_field").style.visibility = "visible";
+            }
+        }
+    </script>
+</head>
+<body>
+    <p class="label">Введите число:</p>
+    <p id="searchButton" onclick="search(this.value)">🔍</p>
+    <div align="center" class="c1">
+        <div class="c1">
+            <input type="text" id="inputField" maxlength="45">
+            <p id="error_field">⠀</p>
+            <ol>
+                <li id="li1">Пойти</li>
+                <li id="li2">Не пойти</li>
+                <li id="li3">Подумать</li>
+                <li id="li4">Рулетка</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

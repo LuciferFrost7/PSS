@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #text_place{
+            width: 500px;
+            height: 250px;
+        }
+    </style>
+    <script>
+        function isNumber($number){
+            if(!$number){
+                return false;
+            }
+            if($number.length > 0){
+                let $flag = 0;
+                if($number.length > 1){
+                    if($number[0] === "-"){
+                        $flag = 1;
+                    }
+                }
+                for(let $i = $flag; $i < $number.length;$i++) {
+                    if (!"0123456789".includes($number[$i])) {
+                        return false;
+                    }
+                }
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        function iterate($number){
+            if(! (isNumber($number))){
+                alert("Введено не число!");
+                return 0;
+            }
+            $number = parseInt($number);
+            let $count = 0;
+            let $textArea = document.querySelector("#text_place")
+            $textArea.textContent = "";
+            while(Math.floor($number / 2) === $number / 2){
+                $textArea.textContent += $number / 2;
+                $textArea.textContent += '\n';
+                $number /= 2;
+                $count++;
+            }
+            $textArea.textContent += `Конечное неделимое число: ${$number}, количество проведённых итераций: ${$count}`;
+        }
+    </script>
+</head>
+<body>
+    <table align="center">
+        <tr>
+            <td>
+                <label for="number_input">
+                    Введите число:
+                </label>
+            </td>
+            <td>
+                <input type="number" name="num_pole" id="number_input" maxlength="10">
+            </td>
+            <td>
+                <input type="button" value="Вычислить" onclick="iterate(document.getElementById('number_input').value)">
+            </td>
+        </tr>
+        <tr>
+            <td height="50px">
+                <label for="text_place">
+                    Результат вычислений:
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <textarea name="text_area1" id="text_place"></textarea>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>
